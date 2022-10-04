@@ -29,6 +29,7 @@ int	main(void)
 {
 	pthread_t	threads[THREADS_NUM];
 
+	pthread_mutex_init(&mutex, NULL);
 	for (int i = 0; i < THREADS_NUM; i++)
 	{
 		// Create thread
@@ -39,7 +40,7 @@ int	main(void)
 		// Wait threads to finish
 		pthread_join(threads[i], NULL);
 	}
-	// Expected to be 2.000.000
+	// Expected to be 4.000.000
 	printf("shared = %d\n", shared);
 	return (0);
 }
