@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/05 15:18:13 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/05 17:42:00 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@
 
 typedef struct s_info
 {
-	int	philo_amount;
+	int	num_of_philo;
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
-	int	must_eat_amount;
+	int	num_times_must_eat;
 }		t_info;
+
+int		throw_error(char *msg);
+int		print_usage(void);
 
 #endif

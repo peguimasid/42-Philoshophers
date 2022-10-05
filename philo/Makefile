@@ -1,6 +1,7 @@
 NAME=philo
 
-SRCS	= src/main.c	\
+SRCS	= src/main.c		\
+				src/common.c	\
 
 OBJ	= $(SRCS:.c=.o)
 
