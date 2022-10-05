@@ -4,7 +4,6 @@
 */**/*.log
 
 .vscode
-philo
 *.a
 *.o
 *.out
