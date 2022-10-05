@@ -6,12 +6,11 @@ int				shared = 0;
 
 pthread_mutex_t	mutex;
 
-void	thread_function(int n)
+void	thread_function(void)
 {
 	int	a;
 	int	b;
 
-	printf("n = %d\n", n);
 	for (int i = 0; i < 100000; i++)
 	{
 		pthread_mutex_lock(&mutex);
@@ -29,7 +28,7 @@ int	main(void)
 
 	pthread_mutex_init(&mutex, NULL);
 	for (int i = 0; i < THREADS_NUM; i++)
-		pthread_create(&threads[i], NULL, (void *)thread_function, (void *)2);
+		pthread_create(&threads[i], NULL, (void *)thread_function, NULL);
 	for (int i = 0; i < THREADS_NUM; i++)
 		pthread_join(threads[i], NULL);
 	// Expected to be 4.000.000
