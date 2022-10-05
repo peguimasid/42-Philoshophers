@@ -1,7 +1,4 @@
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "../includes/philo.h"
 
 #define THREADS_NUM 40
 
@@ -32,15 +29,9 @@ int	main(void)
 
 	pthread_mutex_init(&mutex, NULL);
 	for (int i = 0; i < THREADS_NUM; i++)
-	{
-		// Create thread
 		pthread_create(&threads[i], NULL, (void *)thread_function, (void *)2);
-	}
 	for (int i = 0; i < THREADS_NUM; i++)
-	{
-		// Wait threads to finish
 		pthread_join(threads[i], NULL);
-	}
 	// Expected to be 4.000.000
 	printf("shared = %d\n", shared);
 	return (0);
