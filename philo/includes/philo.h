@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/05 17:42:00 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/06 14:28:35 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 
 typedef struct s_info
@@ -27,7 +28,7 @@ typedef struct s_info
 	int	num_times_must_eat;
 }		t_info;
 
-int		throw_error(char *msg);
+int		throw_error(char *error);
 int		print_usage(void);
 
 #endif

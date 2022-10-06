@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:32:11 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/05 17:43:34 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/06 14:32:08 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 int	print_usage(void)
 {
-	return (throw_error("Usage: ./philo <num_of_philo> <time_to_die> <time_to_eat> \
-<time_to_sleep> [num_times_philo_should_sleep]"));
+	throw_error("Usage: ./philo <num_of_philo> <time_to_die> <time_to_eat> \
+<time_to_sleep> [num_times_philo_should_sleep]");
+	return (1);
 }
 
-int	throw_error(char *msg)
+int	throw_error(char *error)
 {
-	int	i;
-
-	i = 0;
-	while (msg[i])
-		i++;
-	write(STDERR_FILENO, "Error\n", 6);
-	write(STDERR_FILENO, msg, i);
-	write(STDERR_FILENO, "\n", 1);
-	return (1);
+	printf("\033[0;31m\n");
+	printf("Error\n%s\n", error);
+	printf("\033[0m");
+	return (0);
 }
