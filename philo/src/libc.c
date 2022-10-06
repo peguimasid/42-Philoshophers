@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   libc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/06 15:04:26 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/06 15:37:10 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/philo.h"
+#include "../includes/philo.h"
 
 int	ft_atoi(char *str)
 {
@@ -30,4 +30,15 @@ int	ft_atoi(char *str)
 		result += *str++ - '0';
 	}
 	return (result * sign);
+}
+
+int	ft_isnum(char *str)
+{
+	while (*str)
+	{
+		if (!('0' <= *str && *str <= '9'))
+			return (0);
+		str++;
+	}
+	return (1);
 }

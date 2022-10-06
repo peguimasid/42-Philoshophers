@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/06 15:04:29 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/06 15:40:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ typedef struct s_info
 	int	num_times_must_eat;
 }		t_info;
 
-int		parse(t_info *info, int argc, char **argv);
+void	init_args(t_info *info, int argc, char **argv);
+int		is_valid_args(int argc, char **argv);
 
 int		throw_error(char *error);
 int		print_usage(void);
 
 int		ft_atoi(char *str);
+int		ft_isnum(char *str);
 
 #endif

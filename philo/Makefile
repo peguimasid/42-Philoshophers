@@ -1,9 +1,9 @@
 NAME=philo
 
 SRCS	= src/main.c		\
-				src/parse/main.c	\
-				src/utils/error.c	\
-				src/utils/ft_atoi.c	\
+				src/init.c	\
+				src/common.c	\
+				src/libc.c	\
 
 OBJ	= $(SRCS:.c=.o)
 
