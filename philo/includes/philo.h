@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 17:41:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 18:14:26 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int					print_usage(void);
 
 int					ft_atoi(char *str);
 int					ft_isnum(char *str);
+long long			time_to_ms(struct timeval now);
 
 #endif

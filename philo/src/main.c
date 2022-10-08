@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:18:23 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 18:01:56 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 18:14:38 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	print_things(t_info *data)
 	printf(">> %d\n", data->time_to_eat);
 	printf(">> %d\n", data->time_to_sleep);
 	printf(">> %d\n", data->num_times_must_eat);
+	printf(">> start time = %lld\n", time_to_ms(data->created_at));
 }
 
 int	main(int argc, char **argv)
