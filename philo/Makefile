@@ -12,7 +12,7 @@ OBJ	= $(SRCS:.c=.o)
 	cc -Wall -Wextra -Werror -c $< -o $@
 
 $(NAME): $(OBJ)
-	cc $(OBJ) -o $(NAME) $(LIBFTPRINTF)
+	cc $(OBJ) -o $(NAME)
 
 all: $(NAME)
 
