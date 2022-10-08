@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:00:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 19:17:17 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 19:42:34 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ void	parse_args(t_info *data, int argc, char **argv)
 		data->num_times_must_eat = ft_atoi(argv[5]);
 }
 
-void	*routine(t_philo *philo)
+void	*routine(void *argv)
 {
+	t_philo	*philo;
+
+	philo = argv;
+	usleep(1000);
 	printf("thread num = %d\n", philo->id);
 	return (NULL);
 }
@@ -36,8 +40,7 @@ void	create_and_run_threads(t_info *data)
 	while (i < data->num_of_philo)
 	{
 		data->philos[i].id = i;
-		pthread_create(&data->threads[i], NULL, (void *)routine, data->philos
-				+ i);
+		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
 		i++;
 	}
 }
