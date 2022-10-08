@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:00:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 18:05:45 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 18:07:39 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_valid_args(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	if (argc != 5 && argc != 6)
 		return (print_usage());
