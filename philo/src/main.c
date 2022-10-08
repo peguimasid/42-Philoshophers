@@ -6,11 +6,27 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:18:23 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 18:14:38 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 19:23:22 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+
+void	join_and_free_philo(t_info *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->num_of_philo)
+	{
+		pthread_join(data->threads[i], NULL);
+		pthread_mutex_destroy(&data->forks[i]);
+		i++;
+	}
+	free(data->threads);
+	free(data->philos);
+	free(data->forks);
+}
 
 void	print_things(t_info *data)
 {
@@ -31,5 +47,6 @@ int	main(int argc, char **argv)
 		return (throw_error("You provide missing or invalid arguments"));
 	init_data(&data, argc, argv);
 	print_things(&data);
+	join_and_free_philo(&data);
 	// TODO: Join and free
 }
