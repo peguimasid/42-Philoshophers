@@ -4,6 +4,7 @@ SRCS	= src/main.c		\
 				src/init.c	\
 				src/common.c	\
 				src/libc.c	\
+				src/validate_args.c	\
 
 OBJ	= $(SRCS:.c=.o)
 

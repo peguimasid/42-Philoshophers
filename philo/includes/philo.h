@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 12:35:31 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 17:41:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <sys/time.h>
 # include <unistd.h>
 
 typedef struct s_philo
 {
 	int				id;
-	pthread_mutex_t	left;
-	pthread_mutex_t	right;
-	pthread_t		thread;
+	int				ate_times;
+	struct timeval	last_meal;
 }					t_philo;
 
 typedef struct s_info
@@ -35,9 +35,12 @@ typedef struct s_info
 	int				time_to_sleep;
 	int				num_times_must_eat;
 	t_philo			*philos;
+	pthread_t		*threads;
+	pthread_mutex_t	*forks;
+	struct timeval	created_at;
 }					t_info;
 
-void				init_args(t_info *info, int argc, char **argv);
+void				init_data(t_info *info, int argc, char **argv);
 int					is_valid_args(int argc, char **argv);
 
 int					throw_error(char *error);
