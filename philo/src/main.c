@@ -6,13 +6,13 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:18:23 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 19:23:22 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 19:28:16 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	join_and_free_philo(t_info *data)
+void	join_and_free_threads(t_info *data)
 {
 	int	i;
 
@@ -47,6 +47,6 @@ int	main(int argc, char **argv)
 		return (throw_error("You provide missing or invalid arguments"));
 	init_data(&data, argc, argv);
 	print_things(&data);
-	join_and_free_philo(&data);
+	join_and_free_threads(&data);
 	// TODO: Join and free
 }
