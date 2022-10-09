@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 11:17:41 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 13:58:23 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_philo
 	int				id;
 	int				ate_times;
 	struct timeval	last_meal;
+	pthread_mutex_t	check_mutex;
 	struct s_info	*global;
 }					t_philo;
 
@@ -35,6 +36,7 @@ typedef struct s_info
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				num_times_must_eat;
+	int				num_philo_finish_eat;
 	int				finish;
 	t_philo			*philos;
 	pthread_t		*threads;
