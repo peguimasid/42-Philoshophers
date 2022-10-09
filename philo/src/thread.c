@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 10:19:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 14:12:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ void	initialize_mutexes(t_info *data)
 	int	i;
 
 	i = 0;
+	pthread_mutex_init(&data->finish_mutex, NULL);
 	while (i < data->num_of_philo)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);
+		pthread_mutex_init(&data->philos[i].check_mutex, NULL);
 		i++;
 	}
 }
@@ -47,11 +49,13 @@ void	create_and_run_threads(t_info *data)
 	i = 0;
 	while (i < data->num_of_philo)
 	{
-		data->philos[i].id = i;
+		data->philos[i].id = i + 1;
 		data->philos[i].global = data;
+		data->philos[i].last_meal = data->created_at;
 		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
 		i++;
 	}
+	// TODO: Implement monitor
 }
 
 void	init_philos_threads_and_mutexes(t_info *data)
