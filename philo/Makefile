@@ -1,9 +1,11 @@
 NAME=philo
 
 SRCS	= src/main.c		\
-				src/init.c	\
 				src/common.c	\
-				src/libc.c	\
+				src/utils.c	\
+				src/parse.c	\
+				src/routine.c	\
+				src/thread.c	\
 
 OBJ	= $(SRCS:.c=.o)
 
@@ -11,7 +13,7 @@ OBJ	= $(SRCS:.c=.o)
 	cc -Wall -Wextra -Werror -c $< -o $@
 
 $(NAME): $(OBJ)
-	cc $(OBJ) -o $(NAME) $(LIBFTPRINTF)
+	cc $(OBJ) -o $(NAME)
 
 all: $(NAME)
 
