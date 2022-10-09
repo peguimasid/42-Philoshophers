@@ -6,11 +6,18 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:00:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 23:00:02 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 15:56:53 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+
+int	is_positive(char *num)
+{
+	if (ft_atoi(num) > 0)
+		return (1);
+	return (0);
+}
 
 int	is_valid_args(int argc, char **argv)
 {
@@ -21,7 +28,7 @@ int	is_valid_args(int argc, char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (!ft_isnum(argv[i]) || (!ft_atoi(argv[i])))
+		if (!ft_isnum(argv[i]) || !is_positive(argv[i]))
 			return (0);
 		i++;
 	}
