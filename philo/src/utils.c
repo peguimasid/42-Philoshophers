@@ -6,20 +6,11 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 10:33:24 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 11:02:19 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-long long	time_to_ms(struct timeval now)
-{
-	long long	ms;
-
-	ms = now.tv_sec * 1000;
-	ms += now.tv_usec / 1000;
-	return (ms);
-}
 
 unsigned long	time_now(void)
 {
@@ -33,6 +24,20 @@ unsigned long	time_now(void)
 	u = time.tv_usec / 1000;
 	l = s + u;
 	return (l);
+}
+
+unsigned long	time_to_ms(struct timeval now)
+{
+	unsigned long	ms;
+
+	ms = now.tv_sec * 1000;
+	ms += now.tv_usec / 1000;
+	return (ms);
+}
+
+unsigned long	current_time(t_philo *philo)
+{
+	return (time_now() - time_to_ms(philo->global->created_at));
 }
 
 int	ft_atoi(char *str)
