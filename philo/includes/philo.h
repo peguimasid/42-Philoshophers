@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 18:14:26 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 23:07:30 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_philo
 	int				id;
 	int				ate_times;
 	struct timeval	last_meal;
+	struct s_info	*global;
 }					t_philo;
 
 typedef struct s_info
@@ -40,11 +41,15 @@ typedef struct s_info
 	struct timeval	created_at;
 }					t_info;
 
-void				init_data(t_info *info, int argc, char **argv);
-int					is_valid_args(int argc, char **argv);
+void				init_philos_threads_and_mutexes(t_info *data);
+void				join_and_free_threads(t_info *data);
+void				*routine(void *argv);
 
-int					throw_error(char *error);
+int					is_valid_args(int argc, char **argv);
+void				parse_args(t_info *data, int argc, char **argv);
+
 int					print_usage(void);
+int					throw_error(char *error);
 
 int					ft_atoi(char *str);
 int					ft_isnum(char *str);

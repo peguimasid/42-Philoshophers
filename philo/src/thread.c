@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 15:00:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 19:42:34 by gmasid           ###   ########.fr       */
+/*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
+/*   Updated: 2022/10/08 23:07:37 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	parse_args(t_info *data, int argc, char **argv)
+void	join_and_free_threads(t_info *data)
 {
-	data->num_of_philo = ft_atoi(argv[1]);
-	data->time_to_die = ft_atoi(argv[2]);
-	data->time_to_eat = ft_atoi(argv[3]);
-	data->time_to_sleep = ft_atoi(argv[4]);
-	if (argc == 6)
-		data->num_times_must_eat = ft_atoi(argv[5]);
-}
+	int	i;
 
-void	*routine(void *argv)
-{
-	t_philo	*philo;
-
-	philo = argv;
-	usleep(1000);
-	printf("thread num = %d\n", philo->id);
-	return (NULL);
+	i = 0;
+	while (i < data->num_of_philo)
+	{
+		pthread_join(data->threads[i], NULL);
+		pthread_mutex_destroy(&data->forks[i]);
+		i++;
+	}
+	free(data->threads);
+	free(data->philos);
+	free(data->forks);
 }
 
 void	create_and_run_threads(t_info *data)
@@ -40,6 +36,7 @@ void	create_and_run_threads(t_info *data)
 	while (i < data->num_of_philo)
 	{
 		data->philos[i].id = i;
+		data->philos[i].global = data;
 		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
 		i++;
 	}
@@ -52,10 +49,4 @@ void	init_philos_threads_and_mutexes(t_info *data)
 	data->threads = malloc(sizeof(pthread_t) * data->num_of_philo);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->num_of_philo);
 	create_and_run_threads(data);
-}
-
-void	init_data(t_info *data, int argc, char **argv)
-{
-	parse_args(data, argc, argv);
-	init_philos_threads_and_mutexes(data);
 }

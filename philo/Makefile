@@ -1,10 +1,11 @@
 NAME=philo
 
 SRCS	= src/main.c		\
-				src/init.c	\
 				src/common.c	\
 				src/libc.c	\
-				src/validate_args.c	\
+				src/parse.c	\
+				src/routine.c	\
+				src/thread.c	\
 
 OBJ	= $(SRCS:.c=.o)
 

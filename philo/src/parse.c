@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_args.c                                    :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:00:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 18:07:39 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/08 23:00:02 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,14 @@ int	is_valid_args(int argc, char **argv)
 		i++;
 	}
 	return (1);
+}
+
+void	parse_args(t_info *data, int argc, char **argv)
+{
+	data->num_of_philo = ft_atoi(argv[1]);
+	data->time_to_die = ft_atoi(argv[2]);
+	data->time_to_eat = ft_atoi(argv[3]);
+	data->time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		data->num_times_must_eat = ft_atoi(argv[5]);
 }
