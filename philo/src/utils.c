@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libc.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 18:13:35 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:31:57 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,20 @@ long long	time_to_ms(struct timeval now)
 	ms = now.tv_sec * 1000;
 	ms += now.tv_usec / 1000;
 	return (ms);
+}
+
+unsigned long	time_now(void)
+{
+	struct timeval	time;
+	unsigned long	l;
+	unsigned long	s;
+	unsigned long	u;
+
+	gettimeofday(&time, NULL);
+	s = (time.tv_sec * 1000);
+	u = (time.tv_usec / 1000);
+	l = s + u;
+	return (l);
 }
 
 int	ft_atoi(char *str)
