@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 13:58:23 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 14:02:09 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_info
 	int				num_times_must_eat;
 	int				num_philo_finish_eat;
 	int				finish;
+	pthread_mutex_t	finish_mutex;
 	t_philo			*philos;
 	pthread_t		*threads;
 	pthread_mutex_t	*forks;
