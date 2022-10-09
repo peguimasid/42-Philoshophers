@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 10:31:57 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:33:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ unsigned long	time_now(void)
 	unsigned long	u;
 
 	gettimeofday(&time, NULL);
-	s = (time.tv_sec * 1000);
-	u = (time.tv_usec / 1000);
+	s = time.tv_sec * 1000;
+	u = time.tv_usec / 1000;
 	l = s + u;
 	return (l);
 }
