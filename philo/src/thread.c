@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 14:10:40 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 14:12:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	create_and_run_threads(t_info *data)
 		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
 		i++;
 	}
+	// TODO: Implement monitor
 }
 
 void	init_philos_threads_and_mutexes(t_info *data)
