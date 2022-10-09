@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 23:07:30 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:20:02 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_info
 }					t_info;
 
 void				init_philos_threads_and_mutexes(t_info *data);
-void				join_and_free_threads(t_info *data);
+void				join_threads_and_free_data(t_info *data);
 void				*routine(void *argv);
 
 int					is_valid_args(int argc, char **argv);

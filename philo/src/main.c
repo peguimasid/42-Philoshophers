@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:18:23 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/08 23:05:27 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:20:04 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	main(int argc, char **argv)
 		return (throw_error("You provide missing or invalid arguments"));
 	parse_args(&data, argc, argv);
 	init_philos_threads_and_mutexes(&data);
-	join_and_free_threads(&data);
+	join_threads_and_free_data(&data);
 }

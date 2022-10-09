@@ -6,13 +6,13 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 10:12:56 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:19:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	join_and_free_threads(t_info *data)
+void	join_threads_and_free_data(t_info *data)
 {
 	int	i;
 
@@ -28,12 +28,23 @@ void	join_and_free_threads(t_info *data)
 	free(data->forks);
 }
 
+void	initialize_mutexes(t_info *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->num_of_philo)
+	{
+		pthread_mutex_init(&data->forks[i], NULL);
+		i++;
+	}
+}
+
 void	create_and_run_threads(t_info *data)
 {
 	int	i;
 
 	i = 0;
-	pthread_mutex_init(&data->forks[2], NULL);
 	while (i < data->num_of_philo)
 	{
 		data->philos[i].id = i;
@@ -45,9 +56,10 @@ void	create_and_run_threads(t_info *data)
 
 void	init_philos_threads_and_mutexes(t_info *data)
 {
-	gettimeofday(&data->created_at, NULL);
 	data->philos = malloc(sizeof(t_info) * data->num_of_philo);
 	data->threads = malloc(sizeof(pthread_t) * data->num_of_philo);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->num_of_philo);
+	gettimeofday(&data->created_at, NULL);
+	initialize_mutexes(data);
 	create_and_run_threads(data);
 }
