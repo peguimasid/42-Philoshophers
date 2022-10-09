@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 10:19:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:56:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	create_and_run_threads(t_info *data)
 	i = 0;
 	while (i < data->num_of_philo)
 	{
-		data->philos[i].id = i;
+		data->philos[i].id = i + 1;
 		data->philos[i].global = data;
 		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
 		i++;
