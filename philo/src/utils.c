@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 11:02:19 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 14:49:23 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ unsigned long	time_to_ms(struct timeval now)
 	ms = now.tv_sec * 1000;
 	ms += now.tv_usec / 1000;
 	return (ms);
-}
-
-unsigned long	current_time(t_philo *philo)
-{
-	return (time_now() - time_to_ms(philo->global->created_at));
 }
 
 int	ft_atoi(char *str)

@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 14:02:09 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 14:49:25 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int					throw_error(char *error);
 int					ft_atoi(char *str);
 int					ft_isnum(char *str);
 unsigned long		time_now(void);
-unsigned long		current_time(t_philo *philo);
 unsigned long		time_to_ms(struct timeval now);
 
 #endif

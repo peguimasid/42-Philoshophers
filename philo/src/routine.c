@@ -6,13 +6,13 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:07:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 14:41:30 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 14:50:28 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	print_philo_msg(t_philo *philo, char *str)
+void	print_msg(t_philo *philo, char *str)
 {
 	long long		ms;
 	struct timeval	now;
@@ -33,9 +33,9 @@ void	pickup_forks(t_philo *philo)
 	left_fork = philo->id - 1;
 	right_fork = philo->id % philo->global->num_of_philo;
 	pthread_mutex_lock(&philo->global->forks[right_fork]);
-	print_philo_msg(philo, "has taken a fork");
+	print_msg(philo, "has taken a fork");
 	pthread_mutex_lock(&philo->global->forks[left_fork]);
-	print_philo_msg(philo, "has taken a fork");
+	print_msg(philo, "has taken a fork");
 }
 
 void	eating(t_philo *philo)
@@ -64,13 +64,13 @@ void	eating(t_philo *philo)
 
 void	sleeping(t_philo *philo)
 {
-	print_philo_msg(philo, "is sleeping");
+	print_msg(philo, "is sleeping");
 	usleep(philo->global->time_to_sleep * 1000);
 }
 
 void	thinking(t_philo *philo)
 {
-	print_philo_msg(philo, "is thinking");
+	print_msg(philo, "is thinking");
 }
 
 void	*routine(void *argv)
