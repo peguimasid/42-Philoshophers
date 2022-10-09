@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 10:12:30 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/09 10:12:56 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	create_and_run_threads(t_info *data)
 	int	i;
 
 	i = 0;
-	// pthread_mutex_init(&data->forks[2], NULL);
+	pthread_mutex_init(&data->forks[2], NULL);
 	while (i < data->num_of_philo)
 	{
 		data->philos[i].id = i;
