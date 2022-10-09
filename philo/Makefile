@@ -2,7 +2,7 @@ NAME=philo
 
 SRCS	= src/main.c		\
 				src/common.c	\
-				src/libc.c	\
+				src/utils.c	\
 				src/parse.c	\
 				src/routine.c	\
 				src/thread.c	\
