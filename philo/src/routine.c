@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:07:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 14:50:28 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/10 10:46:25 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	*routine(void *argv)
 	t_philo	*philo;
 
 	philo = argv;
-	if (philo->id % 2)
+	if (philo->id % 2 && philo->global->num_of_philo > 1)
 		usleep(philo->global->time_to_eat * 1000);
 	while (!philo->global->finish)
 	{
