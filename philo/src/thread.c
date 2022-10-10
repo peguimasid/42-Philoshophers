@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 14:12:24 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/10 15:09:26 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	initialize_mutexes(t_info *data)
 
 void	create_and_run_threads(t_info *data)
 {
-	int	i;
+	int			i;
+	pthread_t	thread;
 
 	i = 0;
 	while (i < data->num_of_philo)
@@ -53,9 +54,10 @@ void	create_and_run_threads(t_info *data)
 		data->philos[i].global = data;
 		data->philos[i].last_meal = data->created_at;
 		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
+		pthread_create(&thread, NULL, monitor, data->philos + i);
+		pthread_detach(thread);
 		i++;
 	}
-	// TODO: Implement monitor
 }
 
 void	init_philos_threads_and_mutexes(t_info *data)
