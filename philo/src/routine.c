@@ -6,24 +6,11 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:07:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/10 14:56:53 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/11 19:14:05 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-void	print_msg(t_philo *philo, char *str)
-{
-	long long		ms;
-	struct timeval	now;
-
-	pthread_mutex_lock(&philo->global->finish_mutex);
-	gettimeofday(&now, NULL);
-	ms = time_to_ms(now) - time_to_ms(philo->global->created_at);
-	if (!philo->global->finish)
-		printf("%lldms\t%d\t %s\n", ms, philo->id, str);
-	pthread_mutex_unlock(&philo->global->finish_mutex);
-}
 
 void	pickup_forks(t_philo *philo)
 {

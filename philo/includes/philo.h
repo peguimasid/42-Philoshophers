@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 14:50:43 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/11 19:14:02 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int					parse_args(t_info *data, int argc, char **argv);
 int					print_usage(void);
 int					throw_error(char *error);
 
+void				print_msg(t_philo *philo, char *str);
 int					ft_atoi(char *str);
 int					ft_isnum(char *str);
 unsigned long		time_now(void);
