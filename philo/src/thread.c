@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/10 15:09:26 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:54:52 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void	create_and_run_threads(t_info *data)
 		pthread_create(&thread, NULL, monitor, data->philos + i);
 		pthread_detach(thread);
 		i++;
+	}
+	if (data->num_times_must_eat != 0)
+	{
+		must_eat_monitor(data);
 	}
 }
 
