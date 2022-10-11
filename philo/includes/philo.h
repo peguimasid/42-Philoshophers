@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/10 15:00:39 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:43:16 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void				*routine(void *argv);
 void				*monitor(void *argv);
 
 int					is_valid_args(int argc, char **argv);
-void				parse_args(t_info *data, int argc, char **argv);
+int					parse_args(t_info *data, int argc, char **argv);
 
 int					print_usage(void);
 int					throw_error(char *error);
