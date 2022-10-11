@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 14:54:52 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:57:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ void	create_and_run_threads(t_info *data)
 		i++;
 	}
 	if (data->num_times_must_eat != 0)
-	{
 		must_eat_monitor(data);
-	}
 }
 
 void	init_philos_threads_and_mutexes(t_info *data)
