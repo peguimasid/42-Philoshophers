@@ -6,6 +6,7 @@ SRCS	= src/main.c		\
 				src/parse.c	\
 				src/routine.c	\
 				src/thread.c	\
+				src/monitor.c	\
 
 OBJ	= $(SRCS:.c=.o)
 

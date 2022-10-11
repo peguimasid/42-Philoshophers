@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:00:47 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/09 15:56:53 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/11 14:43:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@ int	is_valid_args(int argc, char **argv)
 	return (1);
 }
 
-void	parse_args(t_info *data, int argc, char **argv)
+int	parse_args(t_info *data, int argc, char **argv)
 {
 	data->num_of_philo = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);
 	data->time_to_sleep = ft_atoi(argv[4]);
+	if (data->num_of_philo < 2)
+		return (0);
 	if (argc == 6)
 		data->num_times_must_eat = ft_atoi(argv[5]);
+	return (1);
 }
