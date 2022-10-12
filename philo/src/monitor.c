@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:00:13 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 19:49:10 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/12 12:12:02 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	*monitor(void *argv)
 			dead_time = time_to_ms(now) - time_to_ms(philo->global->created_at);
 			printf("%lums\t%d\t %s\n", dead_time, philo->id, "died");
 			philo->global->finish = 1;
-			exit(0);
 		}
 		pthread_mutex_unlock(&philo->global->finish_mutex);
 		pthread_mutex_unlock(&philo->check_mutex);
