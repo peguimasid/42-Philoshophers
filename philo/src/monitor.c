@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:00:13 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/13 13:42:59 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:46:04 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*monitor(void *argv)
 		pthread_mutex_lock(&philo->check_mutex);
 		pthread_mutex_lock(&philo->global->finish_mutex);
 		ms = time_now() - philo->last_meal;
-		if (ms >= philo->global->time_to_die && philo->global->finish == 0)
+		if (ms > philo->global->time_to_die && philo->global->finish == 0)
 		{
 			dead_time = time_now() - philo->global->created_at;
 			printf("%lums\t%d\t %s\n", dead_time, philo->id, "died");
