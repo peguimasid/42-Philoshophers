@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:00:13 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/13 13:37:35 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:42:59 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	*monitor(void *argv)
 		}
 		pthread_mutex_unlock(&philo->global->finish_mutex);
 		pthread_mutex_unlock(&philo->check_mutex);
+		usleep(100);
 	}
 	return (NULL);
 }

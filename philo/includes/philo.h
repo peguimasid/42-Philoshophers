@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/13 13:38:30 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:42:12 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int					throw_error(char *error);
 void				print_msg(t_philo *philo, char *str);
 int					ft_atoi(char *str);
 int					ft_isnum(char *str);
+void				smart_sleep(unsigned long time, t_philo *philo);
 unsigned long		time_now(void);
 
 #endif

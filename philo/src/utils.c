@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/13 13:38:55 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:41:32 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,24 @@ unsigned long	time_now(void)
 
 	gettimeofday(&time, NULL);
 	return ((time.tv_sec * 1000) + time.tv_usec / 1000);
+}
+
+unsigned long	time_diff(unsigned long past, unsigned long pres)
+{
+	return (pres - past);
+}
+
+void	smart_sleep(unsigned long time, t_philo *philo)
+{
+	long long	i;
+
+	i = time_now();
+	while (!(philo->global->finish))
+	{
+		if (time_diff(i, time_now()) >= time)
+			break ;
+		usleep(50);
+	}
 }
 
 int	ft_atoi(char *str)
