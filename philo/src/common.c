@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:32:11 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/06 15:37:33 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 14:18:11 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,15 @@ int	throw_error(char *error)
 	printf("Error\n%s\n", error);
 	printf("\033[0m");
 	return (0);
+}
+
+void	print_msg(t_philo *philo, char *str)
+{
+	long long	ms;
+
+	pthread_mutex_lock(&philo->global->finish_mutex);
+	ms = time_now() - philo->global->created_at;
+	if (!philo->global->finish)
+		printf("%lldms\t%d\t %s\n", ms, philo->id, str);
+	pthread_mutex_unlock(&philo->global->finish_mutex);
 }

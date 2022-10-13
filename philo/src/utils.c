@@ -6,22 +6,11 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/13 13:41:32 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 14:18:07 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
-void	print_msg(t_philo *philo, char *str)
-{
-	long long	ms;
-
-	pthread_mutex_lock(&philo->global->finish_mutex);
-	ms = time_now() - philo->global->created_at;
-	if (!philo->global->finish)
-		printf("%lldms\t%d\t %s\n", ms, philo->id, str);
-	pthread_mutex_unlock(&philo->global->finish_mutex);
-}
 
 unsigned long	time_now(void)
 {
