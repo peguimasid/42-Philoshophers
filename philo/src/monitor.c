@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:00:13 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 14:50:46 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:37:35 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	*must_eat_monitor(void *argv)
 void	*monitor(void *argv)
 {
 	t_philo			*philo;
-	struct timeval	now;
 	long long		ms;
 	unsigned long	dead_time;
 
@@ -39,12 +38,10 @@ void	*monitor(void *argv)
 	{
 		pthread_mutex_lock(&philo->check_mutex);
 		pthread_mutex_lock(&philo->global->finish_mutex);
-		gettimeofday(&now, NULL);
-		ms = time_to_ms(now) - time_to_ms(philo->last_meal);
-		gettimeofday(&now, NULL);
+		ms = time_now() - philo->last_meal;
 		if (ms >= philo->global->time_to_die && philo->global->finish == 0)
 		{
-			dead_time = time_to_ms(now) - time_to_ms(philo->global->created_at);
+			dead_time = time_now() - philo->global->created_at;
 			printf("%lums\t%d\t %s\n", dead_time, philo->id, "died");
 			philo->global->finish = 1;
 		}

@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:07:02 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 19:14:05 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:36:58 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	eating(t_philo *philo)
 	left_fork = philo->id - 1;
 	right_fork = philo->id % philo->global->num_of_philo;
 	pthread_mutex_lock(&philo->check_mutex);
-	gettimeofday(&philo->last_meal, NULL);
-	ms = time_to_ms(philo->last_meal) - time_to_ms(philo->global->created_at);
+	philo->last_meal = time_now();
+	ms = philo->last_meal - philo->global->created_at;
 	pthread_mutex_lock(&philo->global->finish_mutex);
 	if (!philo->global->finish)
 		printf("%lldms\t%d\t %s\n", ms, philo->id, "is eating");
