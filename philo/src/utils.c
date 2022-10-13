@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/13 14:18:07 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 14:19:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ unsigned long	time_diff(unsigned long past, unsigned long pres)
 
 void	smart_sleep(unsigned long time, t_philo *philo)
 {
-	long long	i;
+	unsigned long	start;
 
-	i = time_now();
+	start = time_now();
 	while (!(philo->global->finish))
 	{
-		if (time_diff(i, time_now()) >= time)
+		if (time_diff(start, time_now()) >= time)
 			break ;
 		usleep(50);
 	}
