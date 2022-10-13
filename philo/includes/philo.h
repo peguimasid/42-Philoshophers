@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:16:25 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 19:14:02 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:42:12 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				ate_times;
-	struct timeval	last_meal;
+	unsigned long	last_meal;
 	pthread_mutex_t	check_mutex;
 	struct s_info	*global;
 }					t_philo;
@@ -42,7 +42,7 @@ typedef struct s_info
 	t_philo			*philos;
 	pthread_t		*threads;
 	pthread_mutex_t	*forks;
-	struct timeval	created_at;
+	unsigned long	created_at;
 }					t_info;
 
 void				init_philos_threads_and_mutexes(t_info *data);
@@ -60,7 +60,7 @@ int					throw_error(char *error);
 void				print_msg(t_philo *philo, char *str);
 int					ft_atoi(char *str);
 int					ft_isnum(char *str);
+void				smart_sleep(unsigned long time, t_philo *philo);
 unsigned long		time_now(void);
-unsigned long		time_to_ms(struct timeval now);
 
 #endif

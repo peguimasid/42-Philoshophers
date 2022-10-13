@@ -6,46 +6,36 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:57:34 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 19:13:51 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 14:19:24 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	print_msg(t_philo *philo, char *str)
-{
-	long long		ms;
-	struct timeval	now;
-
-	pthread_mutex_lock(&philo->global->finish_mutex);
-	gettimeofday(&now, NULL);
-	ms = time_to_ms(now) - time_to_ms(philo->global->created_at);
-	if (!philo->global->finish)
-		printf("%lldms\t%d\t %s\n", ms, philo->id, str);
-	pthread_mutex_unlock(&philo->global->finish_mutex);
-}
-
 unsigned long	time_now(void)
 {
 	struct timeval	time;
-	unsigned long	l;
-	unsigned long	s;
-	unsigned long	u;
 
 	gettimeofday(&time, NULL);
-	s = time.tv_sec * 1000;
-	u = time.tv_usec / 1000;
-	l = s + u;
-	return (l);
+	return ((time.tv_sec * 1000) + time.tv_usec / 1000);
 }
 
-unsigned long	time_to_ms(struct timeval now)
+unsigned long	time_diff(unsigned long past, unsigned long pres)
 {
-	unsigned long	ms;
+	return (pres - past);
+}
 
-	ms = now.tv_sec * 1000;
-	ms += now.tv_usec / 1000;
-	return (ms);
+void	smart_sleep(unsigned long time, t_philo *philo)
+{
+	unsigned long	start;
+
+	start = time_now();
+	while (!(philo->global->finish))
+	{
+		if (time_diff(start, time_now()) >= time)
+			break ;
+		usleep(50);
+	}
 }
 
 int	ft_atoi(char *str)

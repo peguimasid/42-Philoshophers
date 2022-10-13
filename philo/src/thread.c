@@ -6,7 +6,7 @@
 /*   By: gmasid <gmasid@student.42.rio>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:04:10 by gmasid            #+#    #+#             */
-/*   Updated: 2022/10/11 14:57:24 by gmasid           ###   ########.fr       */
+/*   Updated: 2022/10/13 13:36:07 by gmasid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,13 @@ void	create_and_run_threads(t_info *data)
 	pthread_t	thread;
 
 	i = 0;
+	data->created_at = time_now();
 	while (i < data->num_of_philo)
 	{
 		data->philos[i].id = i + 1;
 		data->philos[i].global = data;
-		data->philos[i].last_meal = data->created_at;
 		pthread_create(&data->threads[i], NULL, routine, data->philos + i);
+		data->philos[i].last_meal = time_now();
 		pthread_create(&thread, NULL, monitor, data->philos + i);
 		pthread_detach(thread);
 		i++;
@@ -67,7 +68,6 @@ void	init_philos_threads_and_mutexes(t_info *data)
 	data->philos = malloc(sizeof(t_info) * data->num_of_philo);
 	data->threads = malloc(sizeof(pthread_t) * data->num_of_philo);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->num_of_philo);
-	gettimeofday(&data->created_at, NULL);
 	initialize_mutexes(data);
 	create_and_run_threads(data);
 }
