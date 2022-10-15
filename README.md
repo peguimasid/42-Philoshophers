@@ -21,7 +21,7 @@ git clone https://github.com/peguimasid/42-Philosophers.git philosophers
 2. Run the program passing the params `./philo num_of_philo time_to_die time_to_eat time_to_sleep num_times_must_eat`
 
 ### Examples
-```sh
+```js
 ./philo 1 200 200 200 // Não tem garfos suficientes então retorno erro
 ./philo 2 800 200 200 // ninguém morre
 ./philo 5 800 200 200 // ninguém morre
